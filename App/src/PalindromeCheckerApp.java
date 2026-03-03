@@ -1,17 +1,17 @@
 import java.util.*;
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        String input = "civic";
-        Queue<Character> queue = new LinkedList<>();
-        Stack<Character> stack = new Stack<>();
+        String input = "refer";
+        Deque<Character> deque = new ArrayDeque<>();
         for (char c : input.toCharArray()) {
-            stack.push(c);
-            queue.add(c);
+            deque.add(c);
         }
         boolean isPalindrome = true;
-        while (!queue.isEmpty()) {
-            if (!stack.pop().equals(queue.remove())) {
-                isPalindrome = false;
+        while (deque.size()>1) {
+            char first=deque.pollFirst();
+            char last =deque.pollLast();
+            if(first!=last){
+                isPalindrome=false;
                 break;
             }
         }
